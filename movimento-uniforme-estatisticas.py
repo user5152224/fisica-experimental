@@ -2,6 +2,7 @@
 
 from math import *
 
+# matriz temporal
 T = [
        [ .264, .264, .262, .262, .257, .264, .267, .269, .259, .267 ],
        [ .267, .268, .267, .266, .260, .269, .271, .272, .262, .269 ],
@@ -9,7 +10,7 @@ T = [
        [ .275, .276, .273, .272, .267, .274, .272, .278, .267, .275 ],
     ]
 
-def media(tempos):
+def media(tempos):                  # Média aritmética.
   aux = 0 
 
   for v in tempos:
@@ -17,7 +18,7 @@ def media(tempos):
 
   return aux/len(tempos)
 
-def desvpad(tempos):
+def desvpad(tempos):                # Desvio padrão
   med = media(tempos)
   aux = 0
 
@@ -32,7 +33,7 @@ def errest(tempos):                 # Erro estatístico.
 def errtot(tempos, errinst):        # Erro total.
   return sqrt(errest(tempos)**2+errinst**2)
 
-def prpinc(comp, tempos, errinst):
+def prpinc(comp, tempos, errinst):  # Propagação de erros.
   return sqrt( (errest(tempos) * comp/media(tempos)**2)**2 + (errinst/media(tempos))**2 )
   
 
@@ -72,7 +73,4 @@ for inst in ['Régua', 'Paquímetro']:
     print(f'{velocidade_media:{len(cabecalho[5])}.1f}   '         , end='')
     print(f'{propagacao_de_erros:{len(cabecalho[6])}.1f}   '      , end='')
     print(f'{intervalo_de_incerteza:>{len(cabecalho[7])}}')
-
-
-
 
