@@ -1,0 +1,60 @@
+%\hsize        = 15cm
+%\vsize        = 15cm
+\baselineskip = 15pt
+\parskip      = 20pt
+
+% Roman
+\font\xiirm  = cmr10  scaled 1200
+\font\xviirm = cmr10  scaled 700
+\font\xvrm   = cmr10  scaled 500
+
+% Itálico
+\font\xiimmi  = cmmi10 scaled 1200
+\font\xviimmi = cmmi10 scaled 700
+\font\xvmmi   = cmmi10 scaled 500
+
+% Negrito
+\font\xivbx = cmbx10 scaled 1400
+
+% Caligráfico
+\font\xiisy  = cmsy10 scaled 1200
+\font\xviisy = cmsy10 scaled 700
+\font\xvsy   = cmsy10 scaled 500
+
+\def\xiiptrm{
+  \textfont0         = \xiirm
+  \scriptfont0       = \xviirm
+  \scriptscriptfont0 = \xvrm
+  \def\rm{\fam0\xiirm}
+
+  \textfont1         = \xiimmi
+  \scriptfont1       = \xviimmi
+  \scriptscriptfont1 = \xvmmi
+  \def\it{\fam1\xiimmi}
+
+  \textfont2         = \xiisy
+  \scriptfont2       = \xviisy
+  \scriptscriptfont2 = \xvsy
+  \def\cal{\fam2\xiisy}
+
+  %TODO: Itálico para modo matemático
+\rm}
+
+
+\chardef\i="10
+
+\def\ra{\rightarrow}
+\def\d{\wedge}
+
+\def\fig#1#2{
+  \vskip .5cm
+  \line{\hfil#1\hfil}
+  \vskip 20pt
+  \line{%
+    \hfil
+    Figura: #2
+    \hfil
+  }
+  \vskip .5cm
+}
+
