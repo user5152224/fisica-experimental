@@ -45,7 +45,7 @@ mddinst = {
 }
 
 cabecalho = [
-  '       ',
+  '  ',
   'Instrumento',
   'Tempo médio',
   'Desvio padrão',
