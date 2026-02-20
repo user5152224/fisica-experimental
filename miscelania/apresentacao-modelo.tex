@@ -1,0 +1,222 @@
+% O pacote amsmath é carregado automaticamente pela classe BEAMER
+\usepackage{
+  amsmath,
+  dsfont,
+  enumitem,
+  helvet,
+  hyperref,
+  lipsum,
+  mathrsfs,
+  ragged2e,
+  tikz,
+  xcolor,
+}
+
+\usepackage[brazil]{babel}
+
+\usetikzlibrary{
+  arrows.meta,
+  calc,
+}
+
+% Controlar o estilo do Beamer   
+\beamertemplatenavigationsymbolsempty 
+\newcommand*{\theorembreak}{\usebeamertemplate{theorem end}\framebreak\usebeamertemplate{theorem begin}}
+\setbeamercolor{section number projected}{bg=structure,fg=white}
+\setbeamercolor{bibliography entry author}{fg=black}
+\setbeamercolor{structure}{fg=green!50!black}
+\setbeamerfont{frametitle}{shape=\slshape, family=\sffamily}  
+%\setbeamerfont{section number projected}{size=\normalsize}
+%\setbeamerfont{title}{shape=\itshape, family=\rmfamily}
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamerfont{section in toc}{shape=\slshape, family=\sffamily}
+\setbeamertemplate{theorems}[numbered]
+\apptocmd{\frame}{}{\justifying}{} %Justificar todo o texto no frame
+
+\newtheorem{axi}{Axioma}
+\newtheorem{cor}{Corol\'ario}
+\newtheorem{Def}{Defini\c c\~ao}
+\newtheorem{exe}{Exemplo}
+\newtheorem{lem}{Lema}
+\newtheorem{obs}{Observa\c c\~ao}
+\newtheorem{pro}{Proposi\c c\~ao}
+\newtheorem{teo}{Teorema}
+
+% Fazer o título da apresentação.
+\newcommand{\titulo}[1]{
+  \begingroup    
+    \setbeamertemplate{headline}{}
+    \begin{frame}[noframenumbering]    
+      \centering     
+      \footnotesize
+      \parbox[c]{6cm}{  
+        {% 
+          UNIVERSIDADE\hfill FEDERAL\hfill DA\hfill PARA\'IBA%
+        }
+        \vskip 1pt
+        \fontsize{7}{7}\selectfont
+        CENTRO \hfill DE\hfill CI\^ENCIAS\hfill EXATAS\hfill E\hfill DA NATUREZA%
+        \par
+      }      
+      \vskip 1.4cm
+      {
+        \usebeamercolor[fg]{structure}
+        \large\bfseries\sffamily\slshape\MakeUppercase{%
+          #1
+        }
+      }
+      \vskip .42cm
+      {%
+        \itshape por
+      }
+      \vskip .42cm
+      {%
+        \sffamily Harllen Ara\'ujo de Sena
+      }
+      \tiny\par
+      {%
+        \tt\href{mailto:harllen.araujo@gmail.com}{<harllen.araujo@gmail.com>}
+      }
+      \vskip .63cm
+      Jo\~ao Pessoa\par\the\year
+    \end{frame}
+  \endgroup
+}
+
+% Barra de progresso adaptado de: https://tex.stackexchange.com/questions/59742/progress-bar-for-latex-beamer.
+\makeatletter
+  \def\progressbar@progressbar{}  % the progress bar
+  \newcount\progressbar@tmpcounta % auxiliary counter
+  \newcount\progressbar@tmpcountb % auxiliary counter
+  \newdimen\progressbar@pbht      % progressbar height
+  \newdimen\progressbar@pbwd      % progressbar width
+  \newdimen\progressbar@rcircle   % radius for the circle
+  \newdimen\progressbar@tmpdim    % auxiliary dimension
+  
+  \progressbar@pbwd=\linewidth
+  \progressbar@pbht=1pt
+  
+  % A barra de progresso
+  \def\progressbar@progressbar{%
+    \progressbar@tmpcounta=\insertframenumber
+    \progressbar@tmpcountb=\inserttotalframenumber
+       \progressbar@tmpdim=\progressbar@pbwd
+    \multiply\progressbar@tmpdim by \progressbar@tmpcounta
+    \divide\progressbar@tmpdim by \progressbar@tmpcountb
+  
+    \begin{tikzpicture}
+      \draw [ white!85!black,
+              line width=\progressbar@pbht,
+              line cap=round,
+            ] (0pt, 0pt) -- ++ (\progressbar@pbwd,0pt) node [ text=green!50!black, 
+                                                              midway,
+                                                              below=2pt
+                                                            ] {
+                                                                %\fontsize{9.1}{9.1}\selectfont
+                                                                \slshape\bfseries
+                                                                \MakeUppercase{\@currentlabelname}
+                                                              };
+      \draw [ green!50!black,
+              line width=\progressbar@pbht,
+              line cap=round,
+            ] (0pt, 0pt) -- ++ (\the\dimexpr\progressbar@tmpdim-\progressbar@rcircle\relax,0pt);
+      \node[ %draw=green!50!black,
+             text width=3.5em,
+             align=center,
+             inner sep=1pt,
+             text=green!50!black,
+             anchor=west,
+             rounded corners=.5pt
+           ] at (\progressbar@pbwd,0) {%
+                                        \fontsize{7.7}{7.7}\selectfont\insertframenumber/\inserttotalframenumber
+                                      };
+    \end{tikzpicture}%
+  }
+  \addtobeamertemplate{headline}{}
+  {%
+    \begin{beamercolorbox}[ wd=\paperwidth,
+                            ht=7ex,
+                            center,
+                            dp=1ex
+                          ]{white}%
+      \progressbar@progressbar%
+    \end{beamercolorbox}%
+  }
+\makeatother
+
+% Define um estilo de teorema
+\newtheoremstyle{slanted}
+{10pt}
+{10pt}
+{\slshape}
+{}
+{\bfseries}
+{}
+{0.5em}
+{\thmname{\bfseries #1} \thmnumber{\scshape #2}\thmnote{ \scshape(#3)}\quad}
+
+\theoremstyle{slanted}
+
+% Referências cruzadas.
+\def\rf#1{
+  {
+    \usebeamercolor[fg]{structure}\ff\ref{#1}
+  }
+}
+
+\def\prova{
+  {
+    \usebeamercolor[fg]{structure}\itshape Prova.\ %
+  }
+}
+\def\AEs{{\bf AEs}}
+\def\AEx{{\bf AEx}}
+\def\AS{{\bf AS}\ }
+\def\Cap{\mathop{\textstyle\bigcap}}
+\def\Cup{\mathop{\textstyle\bigcup}}
+\def\C{\mathds{C}}
+\def\Join{\mathop{\textstyle\bigcurlyvee}}
+\def\K{\mathds{K}}
+\def\L{\mathds{L}}
+\def\N{\mathds{N}}
+\def\Meet{\mathop{\textstyle\bigcurlywedge}}
+\def\Q{\mathds{Q}}
+\def\R{\mathds{R}}
+\def\U{{\cal U}}
+\def\Vee{\mathop{\textstyle\bigvee}}
+\def\Wedge{\mathop{\textstyle\bigwedge}}
+\def\Z{\mathds{Z}}
+\def\[{\begin{equation}}
+\def\]{\end{equation}}
+\def\af{{\it a fortiori}}
+\def\a{\wedge}
+\def\bf{\bfseries}
+\def\cal{\mathcal}
+\def\cp{\mathbin{\neg}}
+\def\ct#1{{[#1 \citenum{#1}]}}
+\def\d{\,d}
+\def\fr#1#2{\frac{#1}{#2}}
+\def\frak{\mathfrak}
+\def\join{\curlyvee}
+\def\la{\leftarrow}
+\def\lge{\langle}
+\def\lla{\longleftarrow}
+\def\llra{\longleftrightarrow}
+\def\lra{\longrightarrow}
+\def\meet{\curlywedge}
+\def\ora#1{\mkern3mu\overrightarrow{\mkern-3mu#1\mkern3mu}\mkern-3mu}
+\def\o{\vee}
+\def\pma{{\bfseries PMA}}
+\def\prova{\noindent{\usebeamercolor[fg]{structure}\bfseries Prova}\quad}
+\def\qed{\nopagebreak\hbox{ }\hfill{\usebeamercolor[fg]{structure}\rule{.42em}{1em}}\bigskip}
+\def\ra{\rightarrow}
+\def\res{\noindent{\itshape\bfseries Resolu\c c\~ao.\/}\ }
+\def\rf#1#2{{\usebeamercolor[fg]{structure}\bfseries\hyperref[#2]{#1 \ref{#2}}}}
+\def\rge{\rangle}
+\def\scr#1{\mathscr{#1}}
+\def\sen{\,{\rm sen}\,}
+\def\tvm{{\bf TVM}}
+\def\prll{\mathbin{\hbox{/\kern-1pt/}}}
+\def\olra#1{\overleftrightarrow{\mkern-4mu#1}}
+
