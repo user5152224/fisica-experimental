@@ -44,7 +44,7 @@
 \newtheorem{teo}{Teorema}
 
 % Fazer o título da apresentação.
-\newcommand{\titulo}[1]{
+\newcommand{\titulo}[3]{
   \begingroup    
     \setbeamertemplate{headline}{}
     \begin{frame}[noframenumbering]    
@@ -72,7 +72,12 @@
       }
       \vskip .42cm
       {%
-        \sffamily Harllen Ara\'ujo de Sena
+        \sffamily #2
+      }
+      \vskip .2cm
+      e
+      {%
+        \sffamily #3
       }
       \tiny\par
       {%
