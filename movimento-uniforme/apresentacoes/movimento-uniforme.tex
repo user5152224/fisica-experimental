@@ -8,408 +8,175 @@
 
 \begin{document}
   \titulo{%
-    Autovalores, autovetores e diagonaliza\c c\~ao  
+    {\footnotesize F\'isica Experimental I:}
+    \vskip 3pt
+    Movimento Uniforme
   }
 
   \begin{frame}[noframenumbering, plain]{Sum\'ario}
       \tableofcontents[pausesections]
   \end{frame}
   
-  \section{Introdu\c c\~ao}
-  \begin{frame}
+  \section{Objetivo}
+  \begin{frame}{Objetivo}\justifying
+    O objetivo principal do experimento foi estudar o movimento uniforme. A ideia principal era atingir condi\c coes que se aproximassem do ideal, i.e., velocidade constante.
+  \end{frame}
+
+  \begin{frame}{Qual a pergunta a ser respondida?}
+    Sob condi\c c\~oes restritas, com aproxima\c c\~oes grosseiras, podemos validar o movimento uniforme? Em outros termos, queremos responder razovelmente se o princ\'ipio da in\'ercia de Galileo (Galileu):
+
+    \vskip 1cm
+    
+    \hfil
+    \parbox[c]{10cm}{\sl%
+      ``\,Um corpo tende a manter velocidade constante, a menos que uma acelera\c c\~ao $($for\c ca\/$)$ seja aplicada sobre ele.\,''
+    }
+    \hfil
+    \vskip 1cm
+    \'e v\'alido.
+  \end{frame}
+
+  \section{Fundamente\c c\~ao te\'orica}
+  \begin{frame}{Equa\c c\~ao principal}
+    Dado um sistema de cordenadas tridimensional, a equa\c c\~ao hor\'aria para o movemento uniforme \'e dada por uma fun\c c\~ao $\ora{x}:[0,\infty[\,\ra \R^3$ definida por
+    \[
+      \ora{x}(t)=\ora{x_0}+\ora{v}t.
+    \]
+    com $\ora{x_0}\in\R^3$.
+  \end{frame}
+
+  \begin{frame}{O que esperamos observar?}
+    Simplesmente, velocidade aproximadamente constante. Neste caso, como se sabe a velocidade m\'edia entre dois quaisquer instantes da trajet\'oria \'e igual a instant\^anea. 
+  \end{frame}
+
+  \begin{frame}{O que esperamos observar?}
+    Destarte, medindo-se velocidades m\'edias e as comparando, devemos observar que elas n\~ao devem divergir muito.
   \end{frame}
   
-  \section{Autovalores e autovetores}
-  \begin{frame}{Autovalores e autovetores}
-    \begin{Def}
-      \justifying
-      Sejam $V$ um espa\c co vetorial sobre um corpo $\K$ $($usualmente $\K\in\{\R,\C\}$$)$ e ${T:V\ra V}$ uma transforma\c c\~ao linear. Dizemos que $\lambda\in\K$ \'e um {\bfseries autovalor}, ou valor caracter\'istico, ou ainda valor pr\'oprio se, e somente se, existir um vetor $v\in V$, n\~ao nulo, tal que $Tv=\lambda v$. O vetor associado ao autovalor $\lambda$ \'e chamado de {\bfseries autovetor}, vetor caracter\'istico, ou vetor pr\'oprio.
-    \end{Def}
-  \end{frame}
-
-  \begin{frame}
-    Numa perspectiva geom\'etrica $T$ \'e preserva a reta (espa\c co de unidimensional) que tem $v$ como um de seus vetores diretores, {\it viz.}
-    \[
-      [v]=\bigr\{u:\exists\varkappa(\varkappa\in\K\,\a\, u=\varkappa v)\bigr\},
-    \]
-    o subespa\c co vetorial gerado por $v$.
-  \end{frame}
-
-  \begin{frame}
-    \begin{exe}
-      Considere a aplica\c c\~ao $H_\lambda:V\ra V$, dada por $H_\lambda=\lambda I$. Supondo que $V\neq\{0\}$, segue-se que $\lambda$ \'e um autovalor de $H_\lambda$.
-    \end{exe}
-  \end{frame}
-
-  \begin{frame}
-    \begin{exe}
-      \justifying
-      Sejam $\scr D$ o cojunto das fun\c c\~oes diferenci\'aveis em $A$, aberto de $\R$, com imagens em $\R$, e $D$ o operador derivada. \'E conhecido do c\'alculo que $D$ \'e linear em $\scr D$ e para todo $\lambda\in\R$, tem-se
-      \[
-        De^{\lambda x}=\lambda e^{\lambda x}.
-      \]
-      Em palavras a fun\c c\~ao $f\in\scr D$ definida por $f(x)=e^{\lambda x}$ \'e um autovalor de $D$ com autovetor $f$.
-    \end{exe}
-  \end{frame}
-
-  \begin{frame}
-    \begin{exe}
-      Seja $T:\R^2\ra \R^2$ cuja matriz relativa \`a base can\^onica do $\R^2$ \'e
-      \[
-        \begin{bmatrix}
-          2  & 3 \cr
-          -1 & 1 \cr
-        \end{bmatrix}
-      \]
-    \end{exe}
-    Seus autovalores s\~ao dados resolvendo-se o sistema
-    \[
-      \left\{
-      \begin{aligned}
-        2x+3y &=\lambda x\cr
-        -x+y  &=\lambda y\cr
-      \end{aligned}
-      \right.
-    \]
-  \end{frame}
-
-  \begin{frame}
-    Determinamos
-    \[
-      (1-\lambda)y=x,
-      \label{eq1901261618}
-    \]
-    Como queremos um vetor n\~ao nulo, segue-se de (\ref{eq1901261618}) que $x,y\neq 0$ em consequ\^encia
-    \[
-      \bigl((2-\lambda)(1-\lambda)+3\bigr)y=0.
-    \]
-  \end{frame}
-
-  \begin{frame}
-    acarreta
-    \[
-      \lambda^2-3\lambda+5=0
-    \]
-    como
-    \[
-      \Delta=9-4\cdot1\cdot5=-11<0
-    \]
-    n\~ao existe autovalores.
-  \end{frame}
-  
-  \begin{frame}
-    \begin{exe}[Rota\c c\~oes]
-      \justifying
-      Podemos naturalmente considerar $\C^2$ como um espa\c co vetorial sobre $\R$. Definamos a transforma\c c\~ao linear $R_\theta:\C^2\ra \C^2$, dada por $R_\theta z=e^{i\theta}z$, geometricamente multiplicar por um complexo significa rotacionar por um certo \^angulo e aplicar uma homotetia.
-    \end{exe}
-  \end{frame}
-  
-  \begin{frame}
-    Supondo $\theta\in R\cp \pi\Z$, ent\~ao n\~ao existe $\lambda\in\R$ tal que
-    \[
-      \lambda z=R_\theta z=e^{i\theta}z.
-      \label{eq1001251946}
-    \]
-    Com efeito, (\ref{eq1001251946}) nos diz que 
-    \[
-      \lambda=e^{i\theta}=\cos\theta+i\sin\theta,
-    \]
-    o que por sua vez acarreta que $\sin\theta=0$, o que n\~ao \'e o caso, pois escolhemos $\theta\in R\cp \pi\Z$. Logo, $R_\theta$, n\~ao possui autovalores.
-
-  \end{frame}
-  
-  \begin{frame}
-    \begin{exe}
-      Seja $V$ o espa\c co vetorial de todas as fun\c c\~oes cont\'inuas de $R$ em $R$. Seja $T$ o operador linear em $V$ definido por
-      \[
-        (Tf)(x)=\int_0^xf(t)\, dt.
-      \]
-      Por {\it reductio ad absurdum} seja $f\in V\cp\{0\}$ tal que $Tf=\lambda f$. Do c\'alculo, segue-se que existe apenas uma \'unica fun\c c\~ao tal que
-      \[
-        \int_0^xf(t)\,dt=\lambda f(x),
-      \]
-    \end{exe}
-  \end{frame}
-
-  \begin{frame}
-    a saber $f(x)=e^{\lambda x}$. No entanto, de
-    \[
-      \int_0^xf(t)\,dt=\lambda f(x),
-    \]
-    e do teorema fundamental do c\'alculo tem-se
-    \[
-      \lambda e^{\lambda x}=\int_0^xe^{\lambda x}\,\d x=e^{\lambda x}-1,
-    \]
-    donde
-    \[
-      e^{\lambda x}={1\over 1-\lambda}.
-    \]
-    o que \'e um absurdo.
-  \end{frame}
-  
-  \begin{frame}
-    \begin{Def}
-      Dada uma transforma\c c\~ao linear $T$ em um espa\c co vetorial sobre um corpo $\K$, sabe-se que
-      \[
-        A_\lambda=\ker(T-\lambda I)=\bigl\{v:v\in V\,\a\,(T-\lambda)v=0\bigr\},
-      \]
-      \'e um espa\c co vetorial. Nos referiremos a $A_\lambda$ como o {\bfseries autoespa\c co} associado ao autovalor $\lambda$.
-    \end{Def}
-  \end{frame}
-  
-  \begin{frame}
-    Exemplos com poucas dimens\~oes podem ser tratados via sistemas e an\'alise de casos, mas, e se a matriz da transforma\c c\~ao tiver milh\~oes ou at\'e bilh\~oes de entradas? 
-  \end{frame}
-
-  \begin{frame}
-    Qual a raz\~ao de se considerar uma matriz com um n\'umero muito grande de entradas?
-  \end{frame}
-
-  \begin{frame}{O porqu\^e de se considerar matrizes gigantes}
-    Cito alguns ramos da ci\^encia onde faz-se a necessidade de an\'alise do conjunto de autovalores de matrizes enormes:
+  \section{Metodologia}
+  \begin{frame}{Instrumentos utilizados}
     \begin{enumerate}[label = \Roman*.]
       \item{%
-        Algoritmos de ranking;
+        R\'egua;
       }
       \item{%
-        Din\^amica estrutural e engenharia civil;
+        Paqu\'imetro;
       }
       \item{%
-        Mec\^anica qu\^antica e qu\'imica computacional;
+        Fotogate;
       }
       \item{%
-        Reconhecimento facial e compress\~ao (PCA);
-      }
-      \item{%
-        Redes sociais e an\'alise de grafos.
-      }
-
-    \end{enumerate}
-
-  \end{frame}
-
-  \section{Polin\^omio caracter\'istico}
-  \begin{frame}{Polin\^omio caracter\'istico}
-    A solu\c c\~ao engenhosa encontra-se na \'algebra. Ela jaz nas ra\'izes de um polin\^omio especial, a saber, o {\bf polin\^omio caracter\'istico}.
-  \end{frame}
-
-  \begin{frame}
-    Seja $V$ um espa\c co vetorial n\~ao trivial e $T:V\ra V$ uma transforma\c c\~ao linear. O {\bf polin\^omio caracter\'istico} $p_T$ \'e definido como
-    \[
-      p_T(\lambda)=\det(\lambda-T)\qquad\text{ou}\qquad p_T(\lambda)=\det(T-\lambda),
-    \]
-    pois o que nos interessa aqui s\~ao as suas ra\'izes.
-  \end{frame}
-
-  \begin{frame}{Indiferen\c ca do polin\^omio caracter\'istico \`a base}
-    O polin\^omio caracter\'istico \'e determinado via uma representa\c c\~ao matricial dum operador numa base ordenada $\frak a\in\K^n$, com $n\in\omega$. O que acontece se eu representar o operador por outra base $\frak b$?
-  \end{frame}
-
-  \begin{frame}{Indiferen\c ca do polin\^omio caracter\'istico \`a base}
-    Sabe-se que se $[T]_{\frak c}$ \'e a representa\c c\~ao matricial de $T$ na base ${\frak c}\in\{\frak a,\frak c\}$, ent\~ao vale a identidade
-    \[
-      [T]_{\frak b}=[I]_{\frak b}^{\frak a}\,[T]_{\frak a}\,[I]_{\frak a}^{\frak b}.
-    \]
-  \end{frame}
-
-  \begin{frame}{Indiferen\c ca do polin\^omio caracter\'istico \`a base}
-    Sabendo que $P=[I]_{\frak b}^{\frak a}=([I]_{\frak a}^{\frak b})^{-1}$, segue-se que $[T]_{\frak a}$ e $[T]_{\frak b}$, s\~ao similares. Consequentemente,
-    \[
-      \begin{aligned}
-        \det(\lambda-[T]_\frak b)&=\det\bigl(P(\lambda-[T]_\frak a)P^{-1}\bigr)\cr
-                                 &=\det(P)\det\bigl((\lambda-[T]_\frak a)\bigr)\det(P^{-1})\cr
-                                 &=\det(P)\det\bigl((\lambda-[T]_\frak a)\bigr)\det(P)^{-1}\cr
-                                 &=\det\bigl(\lambda-[T]_\frak a\bigr).\cr
-      \end{aligned}
-    \]
-    Portanto, o polin\^omio caracter\'istico \'e inexor\'avel \`a mudan\c ca de base.
-  \end{frame}
-
-  \begin{frame}
-    Note que que $p_T$ ter raiz, \'e uma condi\c c\~ao suficiente para que o n\'ucleo de ${\lambda-T}$ seja n\~ao trivial ($\{0\}$), pois neste caso o operador \'e n\~ao invert\'ivel. Doravante, denotaremos
-    \[
-      A_\lambda=\ker(\lambda-T)=\bigl\{v:v\in V\,\a\,(T-\lambda)v=0\bigr\}.
-    \]
-    E o referiremos como {\bf auto-espa\c co} associado ao autovalor $\lambda$.
-  \end{frame}
-
-  \begin{frame}{Vale a pena indagar}
-  E se a matriz da transforma\c c\~ao n\~ao for quadrada? Neste caso, considera-se os autovalores de $T^tT$, cuja matriz \'e quadrada. Estes valores s\~ao chamados de {\bf valores singulares}.
-  \end{frame}
-
-  \begin{frame}
-  Nesta apresenta\c c\~ao nos restringiremos \`as transforma\c c\~oes ou automorfismos em $V$, consequentemente as matrizes ser\~ao inevitalvemente quadradas. 
-  \end{frame}
-
-  \begin{frame}
-    A seguir veremos um m\'etodo de como obter explicitamente os valores caracter\'isticos diretamente da representa\c c\~ao matricial numa determinada base.
-  \end{frame}
-
-  \section{Diagonaliza\c c\~ao de operadores}
-
-  \begin{frame}
-   A t\'itulo de ilustra\c c\~ao, consideremos $\lambda_i$ com $i\in\{1,\ldots,r\}$ os autovalores de $T$ e, suponhamos que $V$ admite uma base de autovetores, digamos $\frak a\in V^n$. Naturalmente, temos que relativa \`a esta base a matriz de $T$, fica 
-  \end{frame}
-
-  \begin{frame}
-   \[
-     \begin{bmatrix}
-       \lambda_1 &        &           &        &           &        & \cr
-                 & \ddots &           &        &           &    0   & \cr
-                 &        & \lambda_1 &        &           &        & \cr 
-                 &        &           & \ddots &           &        & \cr 
-                 &        &           &        & \lambda_r &        & \cr 
-                 &   0    &           &        &           & \ddots & \cr 
-                 &        &           &        &           &        & \lambda_r \cr 
-
-     \end{bmatrix}
-   \]
-
-   Conformemente, isto simplifica a determina\c c\~ao dos valores caracter\'isticos.
-  \end{frame}
-
-  \begin{frame}
-    Relativo \`a base de autovetores o polin\^omio caracter\'istico fica fatorado em termos lineares m\^onicos
-    \[
-      p_T(\lambda)=\prod_{i=1}^r(\lambda-\lambda_i)^{m_i},
-    \]
-    em que $m_i$ s\~ao as {\bf multiplicidades alg\'ebricas} dos repectivos autovalores $\lambda_i$.
-  \end{frame}
-
-  \begin{frame}
-    \begin{Def}\justifying%
-      Sejam $V\neq\{0\}$ um espa\c co vetorial e $T:V\ra V$ um operador linear. Diremos que $T$ \'e {\bf diagonaliz\'avel} quando $V$ admite uma base composta de autovetores.
-    \end{Def}
-  \end{frame}
-  
-  \begin{frame}
-    \begin{exe}[Operador n\~ao diagnoaliz\'avel]\justifying%
-      Considere um corpo algebricamente fechado $\K$, i.e., todo polin\^omio n\~ao nulo em $\K[x]$ admite raiz. Sejam $V=\K^2$ como espa\c co vetorial sobre $\K$, e $T:V\ra V$ operador cuja matriz na base can\^onica de $V$ \'e
-      \[
-        [T]=
-        \begin{bmatrix}
-          0 & 1 \cr
-          0 & 0 \cr
-        \end{bmatrix}.
-      \]
-      Naturalmente,
-      \[
-        p_T(\lambda)=\lambda^2.
-      \]
-    \end{exe}
-  \end{frame}
-
-
-  \begin{frame}
-    Destarte, s\'o existe um \'unico autovalor, a saber, $0$. Nota-se de 
-    \[
-      [T]=
-      \begin{bmatrix}
-        0 & 1 \cr
-        0 & 0 \cr
-      \end{bmatrix},
-    \]
-    que o posto de $T$ \'e $1$, segue do teorema n\'ucleo-imagem que
-    \[
-      \dim A_0=\dim V-\dim{\frak I}T=2-1=1
-    \]
-    Consequentemente, n\~ao pode existir uma base composta por autovetores. Logo, $T$, n\~ao \'e diagonaliz\'avel.
-
-  \end{frame}
-
-  \begin{frame}{Polin\^omios anuladores de matrizes}
-    Seja $p\in\K[x]$, diremos que o polin\^omio $p$ anula uma matriz $A\in\K^{n\times n}$ se, e somente se, ao se substituir $x$ por $A$ na express\~ao de $p$ obtemos $p(A)=0$, sendo $0$ a matriz nula.
-  \end{frame}
-
-  
-  \begin{frame}
-    Em termos simples estamos fazendo a seguinte abstra\c c\~ao:
-
-    \begin{enumerate}[label = \Roman*.]
-      \item{%
-        Consideremos 
-        \[
-          p(x)=a_0x^0+\ldots+a_nx^n;
-          \label{eq2101261502}
-        \]
-      }
-      \item{%
-        Trocamos $x$ por $A$ em (\ref{eq2101261502}) obtendo
-        \[
-          p(A)=a_0A^0+\ldots+a_nA^n;
-        \]
-      }
-      \item{
-        Desejamos saber se este novo objeto, a saber, uma matriz, denotada por $p(A)$ \'e nula.
+        Trilho pneum\'atico.
       }
     \end{enumerate}
   \end{frame}
 
-  \begin{frame}{Polin\^omio minimal}
-    \begin{Def}\justifying%
-      O polin\^omio minimal de um operador $T$ \'e um polin\^omio $m_T$ possuindo as seguintes propriedades:
-      \begin{enumerate}[label = \Roman*.]
-        \item{%
-          $m_T([T])=0$;
-        }
-        \item{%
-          Se $p([T])=0$, ent\~ao $m_T|p$.
-        }
-      \end{enumerate}
-
-    \end{Def}
+  \begin{frame}{Como os dados foram coletados?}
+    Usamos um trilho pneum\'atico de 2m de comprimento. T\'inhamos a nossa disposi\c c\~ao quatro sensores \'oticos do fotogate, estes foram espa\c cados uniformemente uns dos outros a uma dist\^ancia de aproximadamente 40cm.
+  \end{frame}
+  
+  \begin{frame}{Quais as grandezas que foram medidas diretamente?}
+    Precipuamente (essencialmente), foram o {\bf comprimento} em metro (m) e seus sub\-m\'ultiplos, por meio de r\'egua e paqu\'imetro e o {\bf tempo} em segundos (s) e seus subm\'ultiplos via fotogate.
   \end{frame}
 
-  \begin{frame}{}
-    \begin{teo}\justifying%
-      Sejam $T$ um operador e $p_T$ seu polin\^omio caracter\'istico. Ent\~ao $p_T([T])=0$.
-    \end{teo}
+  \section{Dados experimentas}
 
-    Deste teorema inferimos que $m_T|p_T$, sendo $m_T$ o polin\^omio minimal de $T$. 
+  \begin{frame}{Tabela $($r\'egua$)$}
+
+    {
+      \centering
+      \begin{table}
+        \begin{tabular}{c c c c c c}
+            TM   & DP    & ET    & VM   &   PE & II            \cr
+            0.26 & 0.004 & 0.001 & 38.0 &  0.3 & $[37.7,38.2]$ \cr
+            0.27 & 0.004 & 0.001 & 37.4 &  0.2 & $[37.2,37.7]$ \cr
+            0.27 & 0.004 & 0.001 & 36.8 &  0.3 & $[36.5,37.0]$ \cr
+            0.27 & 0.004 & 0.001 & 36.6 &  0.2 & $[36.4,36.9]$ \cr
+        \end{tabular}
+        \caption{tabela segundo a r\'egua.}
+      \end{table}
+    }
+    {\scriptsize%
+      Legenda:
+
+      \medskip
+      TM: tempo m\'edio;\par
+      DP: desvio padr\~ao;\par
+      ET: erro total;\par
+      VM: velocidade m\'edia;\par
+      II: intervalo de incerteza.\par
+    }
+  \end{frame}
+
+  \begin{frame}{Tabela $($r\'egua$)$}
+
+    {
+      \centering
+      \begin{table}
+        \begin{tabular}{c c c c c c}
+          TM   & DP    & ET    & VM   & PE  & II          \cr
+          0.26 & 0.004 & 0.001 & 37.0 & 0.2 & [36.8,37.2] \cr
+          0.27 & 0.004 & 0.001 & 36.5 & 0.2 & [36.3,36.7] \cr
+          0.27 & 0.004 & 0.001 & 35.9 & 0.2 & [35.7,36.0] \cr
+          0.27 & 0.004 & 0.001 & 35.7 & 0.2 & [35.6,35.9] \cr
+        \end{tabular}
+        \caption{tabela segundo a r\'egua.}
+      \end{table}
+    }
+    {\scriptsize%
+      Legenda:
+
+      \medskip
+      TM: tempo m\'edio;\par
+      DP: desvio padr\~ao;\par
+      ET: erro total;\par
+      VM: velocidade m\'edia;\par
+      II: intervalo de incerteza.\par
+    }
   \end{frame}
 
 
-  \begin{frame}{Crit\'erio de diagonaliza\c c\~ao dum operador}
-    \begin{teo}\justifying%
-      Seja $T$ um operador. Ent\~ao $T$ \'e diagonaliz\'avel se, e somente se, o polin\^omio minimal for
-      \[
-        m_T(\lambda)=\prod_{i=1}^r(\lambda-\lambda_i).
-      \]
-      Em que os $\lambda_i$ s\~ao precisamente os autovalores distintos de $T$, ou as ra\'izes de $p_T$, o polin\^omio caracter\'istico de $T$.
-    \end{teo}
+  \begin{frame}{Gr\'afico $($r\'egua$)$}
+    \centering
+    \vfill
+    \begin{figure}
+      \tikzpicture[scale=7]
+       \scope[{Circle}-{Circle}]
+         \draw (37.7, .3) node [above=2pt] {37.7} -- (38.2, .3) node [above=2pt] {38.2}; 
+         \draw (37.2, .2) node [above=2pt] {37.2} -- (37.7, .2) node [above=2pt] {37.7};
+         \draw (36.5, .1) node [above=2pt] {36.5} -- (37.0, .1) node [above=2pt] {37.0};
+         \draw (36.4, .0) node [above=2pt] {36.4} -- (36.9, .0) node [above=2pt] {36.9};
+       \endscope
+      \endtikzpicture
+      \caption{medi\c c\~oes segundo a r\'egua.}
+    \end{figure}
+    \vfill
   \end{frame}
 
-  \begin{frame}{Forma de Jordan}
+  \begin{frame}{Gr\'afico $($paqu\'imetro$)$}
+    \centering
+    \vfill
+    \begin{figure}
+      \tikzpicture[scale=7]
+        \scope[{Circle}-{Circle}]
+          \draw (36.8, .3)  node [above=2pt] {36.8} -- (37.2, .3) node [above=2pt] {37.2} ; 
+          \draw (36.3, .2)  node [above=2pt] {36.3} -- (36.7, .2) node [above=2pt] {36.7} ;
+          \draw (35.7, .1)  node [above=2pt] {35.7} -- (36.0, .1) node [above=2pt] {36.0} ;
+          \draw (35.6, .0)  node [above=2pt] {35.6} -- (35.9, .0) node [above=2pt] {35.9} ;
+        \endscope
+      \endtikzpicture
+      \caption{Medi\c c\~oes segundo o paqu\'imetro.}
+    \end{figure}
+    \vfill
   \end{frame}
 
-  \section{Aplica\c c\~oes}
-  \begin{frame}{Classifica\c c\~ao das c\^onicas}
+  \section{An\'alise}
+  \begin{frame}{C\'alculos realizados}
   \end{frame}
-
-  \begin{frame}{Sistemas de equa\c c\~oes diferenciais lineares}
-  \end{frame}
-
 
   \begin{frame}[noframenumbering, plain]{Bibliografia}
     \begin{thebibliography}{}
-      \bibitem{Boldrini}
-      BOLDRINI, JOS\'E LUIZ {\it et al\/}. {\itshape \'Algebra Linear}. $3^{\text{a}}$ ed. S\~ao Paulo: Harper \& Row do Brasil, 1980.
-      \bibitem{HalmosFDVS}
-      HALMOS, PAUL R. {\it Finite Dimensional Vector Spaces}. $2^\text{nd}$ ed. Mineloa, New York: Dover Publications, 2017.
-      \bibitem{HoffmanKunze}
-      HOFFMAN, KENNETH; KUNZE, RAY. {\itshape Linear Algebra}. $2^\text{nd}$ ed. Englewood Cliffs, New Jersey: Prentice-Hall, 1961.
     \end{thebibliography}
   \end{frame}
 
 \end{document}
-
-01-limites-e-continuidade-de-funcoes-reais-de-uma-variavel
-02-definicao-de-derivada-propriedades-reta-tangente-e-exemplos
-03-aplicacoes-de-derivada-maximos-e-minimos-locais-e-absolutos-graficos-de-funcoes
-04-teorema-do-valor-medio-e-aplicacoes
-05-vetores-produto-interno-produto-vetorial-e-produto-misto-de-vetores
-06-retas-e-planos-no-espaco
-07-conicas-circunferencia-elipse-parabola-e-hiperbole
-08-espacos-vetoriais-subespacos-subespacos-gerados-e-base
-09-transformacoes-lineares
-10-autovalores-autovetores-diagonalizacao
