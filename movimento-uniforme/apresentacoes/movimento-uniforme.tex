@@ -40,9 +40,17 @@
   \begin{frame}{Equa\c c\~ao principal}
     Dado um sistema de cordenadas tridimensional, a equa\c c\~ao hor\'aria para o movemento uniforme \'e dada por uma fun\c c\~ao $\ora{x}:[0,\infty[\,\ra \R^3$ definida por
     \[
-      \ora{x}(t)=\ora{x_0}+\ora{v}t.
+      x(t)=\ora{x_0}+\ora{v}t.
     \]
     com $\ora{x_0}\in\R^3$.
+  \end{frame}
+
+  \begin{frame}{Equa\c c\~ao principal}
+    Como o movimento \'e unidimensional podemos escrever simplesmente $x:[0,\infty[\,\ra \R$ definida por
+    \[
+      x(t)=x_0+vt.
+    \]
+    com $x_0\in\R$.
   \end{frame}
 
   \begin{frame}{O que esperamos observar?}
@@ -87,7 +95,7 @@
       \centering
       \begin{table}
         \begin{tabular}{c c c c c c}
-            TM   & DP    & ET    & VM   &   PE & II            \cr
+            TM (s) & DP (s) & ET (s) & VM (cm/s) & PE (cm/s) & II (cm/s)  \cr
             0.26 & 0.004 & 0.001 & 38.0 &  0.3 & $[37.7,38.2]$ \cr
             0.27 & 0.004 & 0.001 & 37.4 &  0.2 & $[37.2,37.7]$ \cr
             0.27 & 0.004 & 0.001 & 36.8 &  0.3 & $[36.5,37.0]$ \cr
@@ -114,7 +122,7 @@
       \centering
       \begin{table}
         \begin{tabular}{c c c c c c}
-          TM   & DP    & ET    & VM   & PE  & II          \cr
+          TM (s) & DP (s) & ET (s) & VM (cm/s) & PE (cm/s) & II (cm/s)  \cr
           0.26 & 0.004 & 0.001 & 37.0 & 0.2 & [36.8,37.2] \cr
           0.27 & 0.004 & 0.001 & 36.5 & 0.2 & [36.3,36.7] \cr
           0.27 & 0.004 & 0.001 & 35.9 & 0.2 & [35.7,36.0] \cr
@@ -172,7 +180,24 @@
 
   \section{An\'alise}
   \begin{frame}{C\'alculos realizados}
+    \[
+      \overline{t} = {\sum_{i=1}^nt_i\over n}\qquad(\hbox{tempo m\'edio, m\'edia aritm\'etica})
+    \]
+    \[
+      \sigma = \sqrt{{\sum (\overline{t}-t_i)^2\over n-1}}\qquad(\hbox{desvio padr\~ao})
+    \]
   \end{frame}
+
+  \begin{frame}{C\'alculos realizados}
+    \[
+      \sigma_{\overline{t}}={\sigma\over\sqrt{n}}\qquad(\hbox{erro estat\'istico})
+    \]
+
+    \[
+      \delta_T = \sqrt{\Bigl({\partial v\over\partial t}\cdot\overline{t}\Bigr)^2+\Bigr({\partial v\over\partial d}\cdot\varepsilon_{\rm inst}\Bigr)^2}\qquad(\hbox{propaga\c c\~ao de erros})
+    \]
+  \end{frame}
+
 
   \begin{frame}[noframenumbering, plain]{Bibliografia}
     \begin{thebibliography}{}
