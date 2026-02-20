@@ -10,7 +10,11 @@
   \titulo{%
     {\footnotesize F\'isica Experimental I:}
     \vskip 3pt
-    Movimento Uniforme
+    Movimento Retil\'ineo Uniforme
+  }{
+    Harllen Ara\'ujo de Sena
+  }{
+    Jos\'e Willian Gon\c calves da Silva 
   }
 
   \begin{frame}[noframenumbering, plain]{Sum\'ario}
@@ -19,7 +23,7 @@
   
   \section{Objetivo}
   \begin{frame}{Objetivo}\justifying
-    O objetivo principal do experimento foi estudar o movimento uniforme. A ideia principal era atingir condi\c coes que se aproximassem do ideal, i.e., velocidade constante.
+    O objetivo principal do experimento foi estudar o movimento uniforme. A ideia principal era atingir condi\c c\~oes que se aproximassem do ideal, i.e., velocidade constante.
   \end{frame}
 
   \begin{frame}{Qual a pergunta a ser respondida?}
@@ -29,7 +33,7 @@
     
     \hfil
     \parbox[c]{10cm}{\sl%
-      ``\,Um corpo tende a manter velocidade constante, a menos que uma acelera\c c\~ao $($for\c ca\/$)$ seja aplicada sobre ele.\,''
+      ``Um corpo tende a manter velocidade constante, a menos que uma acelera\c c\~ao $($for\c ca\/$)$ seja aplicada sobre ele.''
     }
     \hfil
     \vskip 1cm
@@ -84,10 +88,10 @@
   \end{frame}
   
   \begin{frame}{Quais as grandezas que foram medidas diretamente?}
-    Precipuamente (essencialmente), foram o {\bf comprimento} em metro (m) e seus sub\-m\'ultiplos, por meio de r\'egua e paqu\'imetro e o {\bf tempo} em segundos (s) e seus subm\'ultiplos via fotogate.
+    Precipuamente (essencialmente), foram o {\bf comprimento} em metro (m) e seus sub\-m\'ultiplos por meio de r\'egua e paqu\'imetro, e o {\bf tempo} em segundos (s) e seus subm\'ultiplos via fotogate.
   \end{frame}
 
-  \section{Dados experimentas}
+  \section{Dados experimentais}
 
   \begin{frame}{Tabela $($r\'egua$)$}
 
@@ -105,18 +109,20 @@
       \end{table}
     }
     {\scriptsize%
-      Legenda:
+      {\bf Legenda:}
 
       \medskip
-      TM: tempo m\'edio;\par
-      DP: desvio padr\~ao;\par
-      ET: erro total;\par
-      VM: velocidade m\'edia;\par
-      II: intervalo de incerteza.\par
+      \begin{tabular}{rl}
+        TM: & Tempo m\'edio;\cr
+        DP: & Desvio padr\~ao;\cr
+        ET: & Erro total;\cr
+        VM: & Velocidade m\'edia;\cr
+        II: & Intervalo de incerteza.\cr
+      \end{tabular}
     }
   \end{frame}
 
-  \begin{frame}{Tabela $($r\'egua$)$}
+  \begin{frame}{Tabela $($paqu\'imetro$)$}
 
     {
       \centering
@@ -132,14 +138,16 @@
       \end{table}
     }
     {\scriptsize%
-      Legenda:
+      {\bf Legenda:}
 
       \medskip
-      TM: tempo m\'edio;\par
-      DP: desvio padr\~ao;\par
-      ET: erro total;\par
-      VM: velocidade m\'edia;\par
-      II: intervalo de incerteza.\par
+      \begin{tabular}{rl}
+        TM: & Tempo m\'edio;\cr
+        DP: & Desvio padr\~ao;\cr
+        ET: & Erro total;\cr
+        VM: & Velocidade m\'edia;\cr
+        II: & Intervalo de incerteza.\cr
+      \end{tabular}
     }
   \end{frame}
 
@@ -186,22 +194,69 @@
     \[
       \sigma = \sqrt{{\sum (\overline{t}-t_i)^2\over n-1}}\qquad(\hbox{desvio padr\~ao})
     \]
-  \end{frame}
-
-  \begin{frame}{C\'alculos realizados}
     \[
       \sigma_{\overline{t}}={\sigma\over\sqrt{n}}\qquad(\hbox{erro estat\'istico})
     \]
+  \end{frame}
+
+  \begin{frame}{C\'alculos realizados}
 
     \[
-      \delta_T = \sqrt{\Bigl({\partial v\over\partial t}\cdot\overline{t}\Bigr)^2+\Bigr({\partial v\over\partial d}\cdot\varepsilon_{\rm inst}\Bigr)^2}\qquad(\hbox{propaga\c c\~ao de erros})
+      \delta_T = \sqrt{\Bigl({\partial v\over\partial t}\cdot\overline{t}\Bigr)^2+\Bigr({\partial v\over\partial d}\cdot\varepsilon_{\rm inst}\Bigr)^2}\qquad(\hbox{propaga\c c\~ao de erros}),
+    \]
+    em que $\varepsilon_{\rm inst}$ \'e o a incerteza instrumental (erro instrumental) e 
+    \[
+      v(d,t)={d\over t}
+    \]
+    \'e a fun\c c\~ao velocidade.
+  \end{frame}
+
+  \begin{frame}{Sum\'ario dos c\'alculos $($paqu\'imetro$)$}
+    \centering                               
+    \begin{table}                            
+      \begin{alignat*}{2}                    
+        37.0 & \pm 0.2\, \hbox{\sffamily cm/s}\cr
+        36.5 & \pm 0.2\, \hbox{\sffamily cm/s}\cr
+        35.9 & \pm 0.2\, \hbox{\sffamily cm/s}\cr
+        35.7 & \pm 0.2\, \hbox{\sffamily cm/s}\cr
+      \end{alignat*}
+      \caption{velocidade m\'edia com suas respectivas incertezas.}
+    \end{table}
+  \end{frame}
+
+  \section{Discuss\~ao}
+  \begin{frame}{O resultado tem sentido f\'isico?}
+    Sim, apesar de n\~ao termos atingido a velocidade aproximadamente constante em nossa experimenta\c c\~ao, alguns fatores f\'isicos entram em jogo.
+  \end{frame}
+
+  \begin{frame}{O que entra em jogo?}
+
+    {\bf Atrito.} quanto mais intensa a vaz\~ao de ar para o trilho pneum\'atico tanto melhor ser\'a o colch\~ao de ar, tanto menor ser\'a o atrito, melhorando os resultados.
+  \end{frame}
+
+  \begin{frame}{Fontes de erro}
+
+    {\bf Contagem do fotogate.} Quanto maior a enegia potencial el\'astica, tanto maior ser\'a a energia cin\'etica, em consequ\^encia ser\'a maior a velocidade. Como o comprimento da bandeira \'e curto, mais pr\'oximo de zero ser\'a o tempo.
+    \[
+      t={d\over v}.
     \]
   \end{frame}
+  \begin{frame}{Fontes de erro}
 
-
-  \begin{frame}[noframenumbering, plain]{Bibliografia}
-    \begin{thebibliography}{}
-    \end{thebibliography}
+    Aqui o fotogate introduz imprecis\~ao ao experimento, pois ele n\~ao conta as casas decimais necess\'arias. O que segue \'e s\'o um exemplo grosseiro:
+    $$
+      \vbox{
+        \hbox{0.018\color{red}{314}}
+        \hbox{0.017\color{red}{571}}
+      }
+    $$
   \end{frame}
+
+
+
+  %\begin{frame}[noframenumbering, plain]{Bibliografia}
+  %  \begin{thebibliography}{}
+  %  \end{thebibliography}
+  %\end{frame}
 
 \end{document}
