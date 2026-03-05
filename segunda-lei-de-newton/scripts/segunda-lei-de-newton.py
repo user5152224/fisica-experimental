@@ -1,7 +1,6 @@
 #!/usr/bin/python
 
 import math
-
 import estatistica as est
 
 T = [
@@ -11,7 +10,7 @@ T = [
   [.070, .070, .072, .074, .070, .080, .078, .081, .082, .082],
 ] # segundos
 
-d = .975 # centímetros
+d = 0.0955 # metro
 
 V = []
 
@@ -22,7 +21,7 @@ for tempos in T:
 
   V.append(v)
 
-D = [2.2, 4.4, 6.6, 8.8]
+D = [.22, .44, .66, .88]
    
 for v in V:
   med = est.media(v) 
