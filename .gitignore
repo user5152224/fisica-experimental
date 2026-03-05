@@ -8,3 +8,4 @@
 *.swp
 *.synctex.gz
 *.toc
+__pycache__
