@@ -24,3 +24,7 @@ L = [.35, .496, .648, .783, .899, 1.097, 1.193, 1.373] # comprimentos do fio do 
 
 for tempos in T:
   print(f"Teste {T.index(tempos)+1:2d}: {est.media(tempos):.2f} {est.desvpad(tempos):.3f} {est.errest(tempos):.1f} {errtot(tempos):.2f} ({est.media(tempos)/10:.3f}, {L[T.index(tempos)]}) ({(est.media(tempos)/10)**2:.3f}, {L[T.index(tempos)]})")
+
+#C = est.regressao()
+
+
