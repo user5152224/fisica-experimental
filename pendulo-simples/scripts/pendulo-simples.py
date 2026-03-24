@@ -14,17 +14,17 @@ T = [
   [23.05, 23.07, 23.66, 23.47, 23.87], #8
 ] # tempos em segundos.
 
-errinst = 0.01 # erro instrumental (cronômetro digital) em segundos.
-
-def errtot(tempos): # erro total
-  errest = est.errest(tempos)
+def errtot(tempos):            # erro total
+  errinst = 0.01               # erro instrumental (cronômetro digital) em segundos.
+  errest = est.errest(tempos)  # erro estatístico
   return math.sqrt(errest**2+errinst**2)
 
 L = [.35, .496, .648, .783, .899, 1.097, 1.193, 1.373] # comprimentos do fio do pêndulo em metros.
+Q = [(est.media(tempos)/10)**2 for tempos in T]        # comprehension de T^2
+C = est.regressao(L, Q)                                # coeficientes A e B da regressão de T^2 em L (T^2=A+BL)
 
-for tempos in T:
-  print(f"Teste {T.index(tempos)+1:2d}: {est.media(tempos):.2f} {est.desvpad(tempos):.3f} {est.errest(tempos):.1f} {errtot(tempos):.2f} ({est.media(tempos)/10:.3f}, {L[T.index(tempos)]}) ({(est.media(tempos)/10)**2:.3f}, {L[T.index(tempos)]})")
+print(C)
+#for tempos in T:
+#  print(f"Teste {T.index(tempos)+1:2d}: {est.media(tempos):.2f} {est.desvpad(tempos):.3f} {est.errest(tempos):.1f} {errtot(tempos):.2f} ({est.media(tempos)/10:.3f}, {L[T.index(tempos)]}) ({(est.media(tempos)/10)**2:.3f}, {L[T.index(tempos)]})")
 
-#C = est.regressao()
-
-
+print(est.sigma_b(L, Q))
