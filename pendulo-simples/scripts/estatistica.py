@@ -42,7 +42,7 @@ def prodint(u, v):
   return soma  
 
 def regressao(x, y):
-  n   = len(u)
+  n   = len(x)
   p   = prodint(x,y)
   q_x = somaquad(x)
   s_x = somat(x)
@@ -54,4 +54,19 @@ def regressao(x, y):
 
   return [A, B]
 
-  
+def sigma_y(x, y):
+  n    = len(x)
+  soma = 0
+  C    = regressao(x, y)
+  for i in range(len(x)):
+    soma += (C[0]+C[1]*x[i]-y[i])**2
+
+  return math.sqrt(soma/(n-2))
+
+def sigma_b(x, y):
+  n     = len(x)
+  q_x   = somaquad(x)
+  s_x   = somat(x)
+  sig_y = sigma_y(x, y)
+
+  return sig_y * math.sqrt(n/(n*q_x-s_x**2))
