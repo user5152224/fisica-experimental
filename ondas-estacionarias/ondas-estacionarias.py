@@ -18,8 +18,8 @@ QUADMED = [med**2 for med in MED]                                # Quadrado das 
 ERREST  = [est.errest(lambd) for lambd in LA]                    # Erros estatísticos.
 g       = 9.78                                                   # Aceleração gratitacional estipulada (m/s^2)
 MASSAS  = [.060, .110, .160, .210, .260]                         # Massas usadas (em Kg).
-T       = [g*m for m in MASSAS]                                  # Trações (Módulo da força peso).
-C       = est.regressao(T, QUADMED)                              # Coeficientes da regressão linear (y=A+Bx).
+T       = [g*m for m in MASSAS]                                  # Trações (módulo da força peso).
+C       = est.regressao(T, QUADMED)                              # Regressao (y=A+Bx), leia-se [A, B].
 
 print(C)
 
