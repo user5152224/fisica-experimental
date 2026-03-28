@@ -1,47 +1,44 @@
 import math
 
-def media(tempos):                  # Média aritmética.
+def media(tempos): # Média aritmética.
   aux = 0 
-
   for v in tempos:
     aux += v
-
   return aux/len(tempos)
 
-def desvpad(tempos):                # Desvio padrão
+def desvpad(tempos): # Desvio padrão
   med = media(tempos)
   aux = 0
-
   for ent in tempos:
     aux += (med - ent)**2
 
   return math.sqrt(aux/(len(tempos)-1))
 
-def errest(tempos):                 # Erro estatístico.
+def errest(tempos): # Erro estatístico.
   return desvpad(tempos)/math.sqrt(len(tempos))
 
 def somat(v): # Somatória.
   soma = 0
-  for e in v:
-    soma += e
+  for coor in v:
+    soma += coor
 
   return soma
 
 def somaquad(v): # Soma dos quadrados.
   soma = 0
-  for e in v:
-    soma += e**2
+  for coor in v:
+    soma += coor**2
 
   return soma
 
-def prodint(u, v):
+def prodint(u, v): # Produto interno (ou escalar).
   soma = 0
   for i in range(len(u)):
     soma += u[i]*v[i]
 
   return soma  
 
-def regressao(x, y):
+def regressao(x, y): # Regressão linear de y em x.
   n   = len(x)
   p   = prodint(x,y)
   q_x = somaquad(x)
