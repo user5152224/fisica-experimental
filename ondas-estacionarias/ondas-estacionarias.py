@@ -3,23 +3,23 @@
 import math
 import estatistica as est
 
-L = [                                                 # Lista de comprimentos para cada modos
-  # 1     2     3      modos
-  [ .123, .245, .363], # 60g 
-  [ .175, .351, .530], # 110g
-  [ .211, .424, .635], # 160g
-  [ .250, .498, .745], # 210g
-  [ .283, .556, .855], # 260g
+L = [ # Lista de comprimentos (em metro) para cada modo.
+      # modos   1     2     3 
+              [.123, .245, .363], # 60g 
+              [.175, .351, .530], # 110g
+              [.211, .424, .635], # 160g
+              [.250, .498, .745], # 210g
+              [.283, .556, .855], # 260g
 ]
 
-LAMBD = [
-  [2*l/(lens.index(l)+1) for l in lens] for lens in L # Dupla compreensão de listas (lista dos lambdas)
-]          
-EE    = [est.errest(lambd) for lambd in LAMBD]        # Compreensão de erros estatísticos (lista dos erros est.)
-g     = 9.78                                          # Aceleração gratitacional próximo à superfície terrestre
-M     = [.060, .110, .160, .210, .260]                # Sequência de massas usadas
-T     = [g*m for m in M]                              # Compreensão de lista de pesos (Módulo da força peso)
+LA      = [[2*l/(lens.index(l)+1) for l in lens] for lens in L ] # Lista dos lambdas.          
+MED     = [est.media(lambd) for lambd in LA]                     # Lista de médias.
+QUADMED = [med**2 for med in MED]                                # Quadrado das médias para regressão.
+ERREST  = [est.errest(lambd) for lambd in LA]                    # Erros estatísticos.
+g       = 9.78                                                   # Aceleração gratitacional estipulada (m/s^2)
+MASSAS  = [.060, .110, .160, .210, .260]                         # Massas usadas (em Kg).
+T       = [g*m for m in MASSAS]                                  # Trações (Módulo da força peso).
+C       = est.regressao(T, QUADMED)                              # Coeficientes da regressão linear (y=A+Bx).
 
-for lambd in LAMBD:
-    print(f'{est.media(lambd)} ± {est.errest(lambd)}')
+print(C)
 
