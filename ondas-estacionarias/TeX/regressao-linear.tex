@@ -7,14 +7,15 @@
 
 \usetikzlibrary{arrows.meta, math}
 
+\null
+\vfill
 \fig{%
-  \tikzpicture[scale=2]
+  \tikzpicture[scale=3.5]
     \def\err(#1,#2){
-      \def\errl{.05}
       \def\errt{.01}
-      \def\mult{1}
-      \draw [Bracket-Bracket](#1-\mult*\errl,#2) -- (#1+\mult*\errl,#2);
-      \draw (#1,#2-\mult*\errt) -- (#1,#2+\mult*\errt);
+      \def\errl{.05}
+      \draw (#1-\errt,#2) -- (#1+\errt,#2);
+      \draw [Bracket-Bracket] (#1,#2-\errl) -- (#1,#2+\errl);
     }
     \err(0.587, 0.0596988)
     \err(1.076, 0.1235132)
@@ -26,6 +27,8 @@
 }{%
   Regress\~ao linear de $\lambda$ em $T$ (tra\c c\~ao).
 }
+\vfill
+\null
 
 
 
