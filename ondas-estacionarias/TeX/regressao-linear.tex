@@ -1,0 +1,33 @@
+%!tex
+
+\magnification=1400
+
+\input ../../../TeX/macros/macros.tex
+\input tikz
+
+\usetikzlibrary{arrows.meta, math}
+
+\fig{%
+  \tikzpicture[scale=2]
+    \def\err(#1,#2){
+      \def\errl{.05}
+      \def\errt{.01}
+      \def\mult{1}
+      \draw [Bracket-Bracket](#1-\mult*\errl,#2) -- (#1+\mult*\errl,#2);
+      \draw (#1,#2-\mult*\errt) -- (#1,#2+\mult*\errt);
+    }
+    \err(0.587, 0.0596988)
+    \err(1.076, 0.1235132)
+    \err(1.565, 0.1790230)
+    \err(2.054, 0.2482254)
+    \err(2.543, 0.3180960)
+    \draw  (0,-0.019570847407407294) -- (3.13,0.3910458705354843);
+  \endtikzpicture
+}{%
+  Regress\~ao linear de $\lambda$ em $T$ (tra\c c\~ao).
+}
+
+
+
+
+\bye
