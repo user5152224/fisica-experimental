@@ -14,7 +14,7 @@
     \def\err(#1,#2){
       \def\errt{.01}
       \def\errl{.05}
-      \draw (#1-\errt,#2) -- (#1+\errt,#2);
+      \DRAW (#1-\Errt,#2) -- (#1+\errt,#2);
       \draw [Bracket-Bracket] (#1,#2-\errl) -- (#1,#2+\errl);
     }
     \err(0.587, 0.0596988)
