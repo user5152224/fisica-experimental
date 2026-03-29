@@ -5,6 +5,7 @@
 *.nav
 *.out
 *.pid
+*.pgf
 *.swp
 *.synctex.gz
 *.toc
