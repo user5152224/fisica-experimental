@@ -21,5 +21,10 @@ MASSAS  = [.060, .110, .160, .210, .260]                         # Massas usadas
 T       = [g*m for m in MASSAS]                                  # Trações (módulo da força peso).
 C       = est.regressao(T, QUADMED)                              # Regressao (y=A+Bx), leia-se [A, B].
 
+for la in LA:
+  print(f'{est.media(la):.3f} ± {est.errest(la):.5f}')
+
+print('')
+
 print(C)
 
