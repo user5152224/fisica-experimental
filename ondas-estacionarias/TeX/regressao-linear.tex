@@ -7,8 +7,6 @@
 
 \usetikzlibrary{arrows.meta, math}
 
-\null
-\vfill
 \fig{%
   \tikzpicture[scale=3.5]
     \def\err(#1,#2){
@@ -23,11 +21,66 @@
     \err(2.054, 0.2482254)
     \err(2.543, 0.3180960)
     \draw  (0,-0.019570847407407294) -- (3.13,0.3910458705354843);
+    \draw [dashed, draw=black!30!white] (0,0) -- (0,0.3910458705354843) node [above] {$\lambda^2$}; 
+    \draw [dashed, draw=black!30!white] (0,0) -- (3.13,0) node [right] {$T$};
   \endtikzpicture
 }{%
-  Regress\~ao linear de $\lambda$ em $T$ (tra\c c\~ao).
+  Regress\~ao linear de $\lambda^2$ em $T$ (tra\c c\~ao).
 }
-\vfill
-\null
+
+\advance\proclcounter by 4
+\procl{Quest\~ao}{}{}
+Via script {\tt ondas-estacionarias.py} determina-se que o coeficiente $B$ do termo dependente \'e
+$$
+  B=0.13118744982201008.
+$$
+
+Agora, visto que
+$$
+  \lambda^2={1\over \mu f^2}\cdot T,
+$$
+logo,
+$$
+  B={1\over \mu f^2},
+$$
+donde
+$$
+  \mu={1\over Bf^2}\approx0.0005293528042405269
+$$
+
+aproximando para o primeiro d\'\i gito significativo, obtemos
+$$
+  \mu\approx0.0005\,{\rm kg}/{\rm m}
+$$
+
+\procl{Quest\~ao}{}{}
+Via c\'alculo indireto temos
+$$
+  \mu_{\rm ind}={m\over\ell}={0.98\,{\rm kg}\over1.592\,{\rm m}}\approx0.0006155778894472361.
+$$
+Por outro lado, via experimental
+$$
+  \mu_{\rm exp}\approx0.0005293528042405269.
+$$
+Pela teoria de propraga\c c\~ao de erros tem-se
+$$
+  \eqalign{
+    \delta_\mu &=\sqrt{({\partial_B\mu}\cdot\sigma_y)^2}\cr
+               &=\sigma_B|\partial_B\mu|\cr
+               &=\sigma_B\Bigl({1\over Bf}\Bigr)^2\cr
+               &\approx0.00001.\cr
+  }
+$$
+\'E consp\'\i cuo que 
+$$
+  \mu_{\rm ind}=0.0006\notin[0.00052,0.00054]
+$$
+
+N\~ao, os resultados n\~ao s\~ao compat\'\i veis.
+
+
+
+
+
 
 \bye
