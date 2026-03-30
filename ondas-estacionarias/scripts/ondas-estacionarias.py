@@ -29,6 +29,6 @@ print('')
 
 print(C)
 print(est.sigma_b(T, QUADMED)/(C[1]*120)**2)
-#00001.288400723039702e
+print(ERREST)
 
 
