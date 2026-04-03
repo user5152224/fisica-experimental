@@ -1,0 +1,414 @@
+%!tex
+
+\magnification=1400
+
+\input tikz
+\usetikzlibrary{arrows.meta, math}
+\input ../../../TeX/macros/macros.tex
+
+\def\ct#1{\hfil#1\hfil}
+\def\tm{\,(\hbox{s})}
+
+\center{%
+  {DEPARTAMENTO DE F\'ISICA}
+}
+\vskip -.5ex
+\center{%
+  {UNIVERSIDADE FEDERAL DA PARA\'IBA}
+}
+\vskip -.5ex
+\center{%
+  {F\'ISICA EXPERIMENTAL I}
+}
+\vskip 2ex
+\center{%
+  {\sl Experimento 5\quad \rm P\^endulo simples}
+}
+\vskip 2ex
+\par
+
+\noindent
+\vbox{
+  \halign{
+    #\hfil &\quad # \cr
+    {\bsl Docente} & {\bsl Turma} \cr
+     & F\'ISICA EXPERIMENTAL I\cr
+  }
+}
+
+\noindent{\bsl Grupo}\par
+\indent
+\vbox{
+  \halign{
+   # \hfil &\quad # \cr
+  {\bsl Nome} & {\bsl Matr\'\i cula}\cr
+  Harllen Ara\'ujo de Sena & \cr
+  }
+}
+
+\procl{Quest\~ao}{}{%
+  Explique porque escolhemos medir um intervalo de tempo $t$, equivalente a v\'arios per\'\i odos $T$, em vez de medir diretamente um \'unico per\'\i odo de oscila\c c\~ao $T$.
+}
+
+Medir uma \'unica oscila\c c\~ao exigiria muita precis\~ao. Por este motivo, mede-se um intervalo de tempo correspondente a um n\'umero conveniente de oscila\c c\~oes. Por exemplo, digamos que em 10.81 segundos contamos 10 idas e voltas, isto \'e oscila\c c\~oes. O per\'\i odo \'e precisamente $10.81\,\hbox{s}/10=0.1081\,\hbox{s}$.
+
+
+\procl{Quest\~ao}{}{%
+  Para cada comprimento $L$, realize 5 medidas do tempo total $t$ consecutivas do p\^endulo e anote os resultados na {\bsl Tabela 1} abaixo.
+}
+
+\bigskip
+\center{%
+  \vbox{
+    \halign{
+     \ct{#} & \ct{#} & \ct{#} & \ct{#} & \ct{#} & \ct{#} & \ct{#} \cr 
+     $L\,(\hbox{m})$ & $t_1\tm$ & $t_2\tm$ & $t_3\tm$ & $t_4\tm$ & $t_5\tm$ & $\bar{t}\tm$\cr
+           &&&&& \cr    
+     0.350 & 11.62 & 11.78 & 11.50 & 11.85 & 11.76 & 11.70 \cr    
+     0.496 & 13.70 & 14.35 & 14.20 & 14.17 & 10.03 & 13.29 \cr
+     0.648 & 16.15 & 16.19 & 15.72 & 15.87 & 16.19 & 16.02 \cr
+     0.783 & 17.96 & 17.67 & 17.64 & 17.47 & 17.88 & 17.72 \cr
+     0.899 & 18.72 & 19.20 & 19.10 & 18.83 & 19.05 & 18.98 \cr
+     1.097 & 20.63 & 20.62 & 21.17 & 20.82 & 20.43 & 20.73 \cr
+     1.193 & 21.61 & 22.04 & 21.47 & 21.96 & 21.48 & 21.71 \cr
+     1.373 & 23.05 & 23.07 & 23.66 & 23.47 & 23.87 & 23.42 \cr   
+    }
+  }
+}
+\vskip 1em
+\center{%
+  {\bf Tabela 1}
+}
+\bigskip
+
+\procl{Quest\~ao}{}{%
+  A partir dos resultados obtidos na {\bsl Tabela 1}\/, determine o valor m\'edio do per\'\i odo $\bar{T}$, para cada comprimento $L$ do fio. Calcule $\bar{T}^2$ e insira todos os resultados na {\bsl Tabela 2} abaixo.
+}
+
+\bigskip
+\center{%
+  \vbox{
+    \halign{
+     \ct{#} & \ct{#} & \ct{#} \cr
+     $L\,(\hbox{m})$ & $\bar{T}\tm$ & $\bar{T}^2\tm$ \cr
+           &       &       \cr    
+     0.350 & 1.170 & 1.369 \cr    
+     0.496 & 1.329 & 1.766 \cr
+     0.648 & 1.602 & 2.568 \cr
+     0.783 & 1.772 & 3.141 \cr
+     0.899 & 1.898 & 3.602 \cr
+     1.097 & 2.073 & 4.299 \cr
+     1.193 & 2.171 & 4.714 \cr
+     1.373 & 2.342 & 5.487 \cr   
+    }
+  }
+}
+\vskip 1em
+\center{%
+  {\bf Tabela 1}
+}
+\bigskip
+ 
+
+\procl{Quest\~ao}{}{%
+  Fa\c ca o gr\'afico de $L$ versus $\bar{T}$. Determine incialmente qual grandeza ficar\'a no eixo horizontal. H\'a uma depend\^encia linear?
+}
+
+A grandeza sendo mensurada \'e o per\'\i odo, que por sua vez depende do comprimento do fio do p\^endulo.
+
+\fig{%
+  \tikzpicture[scale=1.2]
+    \def\cn#1#2{
+      \node [
+        pin={
+          [fill=white, draw=black]
+          #2:{$#1$}
+        },
+        circle,
+        draw=black, 
+        fill=white,
+        inner sep=1.5pt,
+      ] at #1 {};
+    }
+    \def\err(#1,#2){
+      \def\errl{.05}
+      \def\errt{.01}
+      \draw [draw=red] (#1,#2) circle [radius=1pt];
+      \draw (#1-\errl,#2) -- (#1+\errl,#2);
+      \draw (#1,#2-\errt) -- (#1,#2+\errt);
+    }
+    \coordinate (p1) at (0.350,1.170);
+    \coordinate (p2) at (0.496,1.329);
+    \coordinate (p3) at (0.648,1.602);
+    \coordinate (p4) at (0.783,1.772);
+    \coordinate (p5) at (0.899,1.898);
+    \coordinate (p6) at (1.097,2.073);
+    \coordinate (p7) at (1.193,2.171);
+    \coordinate (p8) at (1.373,2.342);
+    \scope
+      \cn{(0.350,1.170)}{235}
+      \cn{(0.496,1.329)}{300}
+      \cn{(0.648,1.602)}{345}
+      \cn{(0.783,1.772)}{0}
+      \cn{(0.899,1.898)}{180}
+      \cn{(1.097,2.073)}{160}
+      \cn{(1.193,2.171)}{3}
+      \cn{(1.373,2.342)}{110}
+    \endscope
+    \scope[xshift=4cm, scale=1.5]
+      \draw[->] (-.25,0) -- (2,0) node [above=2pt] {L};
+      \draw[->] (0,-.25) -- (0,3) node [above=2pt] {$\bar{T}$};
+      \err(0.350,1.170)
+      \err(0.496,1.329)
+      \err(0.648,1.602)
+      \err(0.783,1.772)
+      \err(0.899,1.898)
+      \err(1.097,2.073)
+      \err(1.193,2.171)
+      \err(1.373,2.342)
+    \endscope
+  \endtikzpicture
+}{%
+  gr\'afico $\bar{T}$ versus $L$.
+}
+
+N\~ao. A depend\^encia \'e dada por teoria via aproxima\c c\~oes por \^angulos pequenos por
+$$
+  T=2\pi\sqrt{L\over g},
+$$
+uma rela\c c\~ao quadr\'atica.
+
+\procl{Quest\~ao}{}{%
+  Fa\c ca um segundo gr\'afico de $L$ e $\bar{T}$. Agora h\'a uma depend\^encia linear? O modelo te\'orico prev\^e esta depend\^encia? Prove.
+}
+
+Antes, observemos que para \^angulos pequenos vale 
+$$
+  T=2\pi\sqrt{L\over g},
+$$
+da\'\i\ vem
+$$
+  T^2={4\pi^2\over g}L,
+$$
+e portanto a dep\^endencia \'e linear. Em conformidade, a teoria prev\^e esta dep\^endencia.
+
+Segue o gr\'afico requerido.
+
+\fig{%
+  \tikzpicture[scale=2]
+    \def\err(#1,#2){
+      \def\errl{.05}
+      \def\errt{.01}
+      \draw (#1-\errl,#2) -- (#1+\errl,#2);
+      \draw (#1,#2-\errt) -- (#1,#2+\errt);
+    }
+    \draw[->] (-.25,0) -- (2,0) node [above=2pt] {L};
+    \draw[->] (0,-.25) -- (0,6) node [above=2pt] {$\bar{T}^2$};
+    \err(0.350,1.369)
+    \err(0.496,1.766)
+    \err(0.648,2.568)
+    \err(0.783,3.141)
+    \err(0.899,3.602)
+    \err(1.097,4.299)
+    \err(1.193,4.714)
+    \err(1.373,5.487)
+  \endtikzpicture
+}{%
+  gr\'afico $\bar{T}^2$ versus $L$.
+}
+
+\procl{Quest\~ao}{}{%
+  A partir do m\'etodo dos m\'\i nimos quadrados obtenha o coeficiente angular e sua incerteza. Apresente todos os c\'alculos.
+}
+
+ Antes, fa\c camos uma an\'alise grosseira do procedimento de determina\c c\~ao dos coeficientes $A$ e $B$, tais que
+$$
+  (\Lambda)\qquad y_i=A+Bx_i
+$$
+em que $x_i$ e $y_i$ s\~ao as vari\'aveis aleat\'orias (medidas) em an\'alise. Segundo J. R. Taylor a medida de $y_i$ \'e governada pela distribui\c c\~ao Gaussiana, com o mesmo comprimento $\sigma_y$ para todas as medidas.
+
+Em sua obra nota-se que a rela\c c\~ao $(\Lambda)$, implicar\'a que a probabilidade de se obter o valor $y_i$ \'e
+$$
+  {\rm P}_{AB}(y_i)\propto{1\over\sigma_y}\exp\biggl({(A+Bx_i-y_i)^2\over2\sigma_y^2}\biggr)
+$$
+e a probabilidade de se obter o conjunto completo de medidas $y_1,\ldots,y_n$ \'e o produto
+
+$$
+  (\Pi)\qquad P_{AB}(y_1,\ldots,y_n)\;=\;\prod_{i=1}^nP_{AB}(y_i)\;\propto\;{1\over\sigma_y^n}\exp\Bigl(-{\chi^2\over2}\Bigr)
+$$
+em que evidentemente
+$$
+  \chi^2={1\over\sigma_y^2}\sum_{i=1}^n(A+Bx_i-y_i)^2
+$$
+Assume-se ent\~ao, que as melhores estimativas para as inc\'ognitas $A$ e $B$ concernentes as medidas $x_i$ e $y_i$, s\~ao tais que $P_{AB}(y_1,\ldots,y_n)$ \'e m\'axima. Em virtude de $(\Pi)$ podemos inferir que isto \'e alca\c cado quando $\chi^2$ \'e m\'\i nimo. Sabemos que $\chi^2$ \'e uma fun\c c\~ao de $2$ vari\'aveis reais, nomeadamente $A$ e $B$ com valores reais. Ademais,
+
+$$
+  \nabla\chi^2(A,B)=-{2\over\sigma_y^2}\Bigl(\sum_iA+Bx_i-y_i,x_i\sum_iA+Bx_i-y_i\Bigr)
+$$
+Seu \'unico ponto cr\'\i tico \'e determinado fazendo-se $\nabla\chi^2=0$, equivalentemente solucionar o sistema
+$$
+  (S)\qquad
+  \left\{
+  \eqalign{
+    nA+S_xB   &=S_y\cr
+    S_xA+Q_xB &=P\cr
+  }
+  \right.
+$$
+em que
+$$
+  S_x=\sum_ix_i,\quad S_y=\sum_iy_i,\quad Q_x=\sum_ix_i^2\quad \hbox{e}\quad P=\sum_ix_iy_i.
+$$
+Resolvendo para $A$ e $B$, temos
+$$
+  A={S_yQ_x-PS_x\over nQ_x-S_x^2}\quad\hbox{e}\quad B={nP-S_xS_y\over nQ_x-S_x^2}.
+$$
+Por fim, notemos que
+$$
+ [(\nabla\chi^2)']=
+ \left[\matrix{
+  \partial_A^2\chi^2  & \partial_{AB}\chi^2 \cr
+  \partial_{BA}\chi^2 & \partial_B^2\chi^2 \cr
+ }
+ \right]
+ =
+ \left[\matrix{
+  \displaystyle{2n\over\sigma_y^2}   & \displaystyle{2S_x\over\sigma_y^2} \cr
+  \omit\cr
+  \displaystyle{2S_x\over\sigma_y^2} & \displaystyle{2Q_x\over\sigma_y^2} \cr
+ }
+ \right],
+$$
+cuja forma quadr\'atica Hessiana \'e
+$$
+  \det[(\nabla\chi^2)']={4\over\sigma_y^4}(nQ_x-S_x^2).
+$$
+Sejam $x=(x_1,\ldots,x_n)$ e $u=(1,\ldots,1)$, pela desigualdade de {\bsl Cauchy-Bunyakovski-Schwartz} inferimos
+$$
+  S_x=\langle x,u\rangle\leq\sqrt{\sum_ix_i^2}\sqrt{n}=\sqrt{Q_x}\sqrt{n},
+$$
+donde conclu\'\i mos que
+$$
+  nQ_x-S_x^2\geq0.
+$$
+Al\'em disso, o m\'etodo dos m\'\i nimos quadrados s\'o \'e significativo se n\~ao for o caso que todos os $x_i$ s\~ao iguais. Sob est\'a hip\'otesea, segue-se que
+$$
+  \det[(\nabla\chi^2)']={4\over\sigma_y^4}(nQ_x-S_x^2)>0.
+$$
+Portanto, o ponto cr\'\i tico $(A,B)$ \'e ponto de m\'\i nimo local de $\chi^2$.
+
+Em nosso caso
+$$
+  \vbox{
+    \halign{
+      \hfil$#$\hfil\cr
+      x=(0.350, 0.496, 0.648, 0.783, 0.899, 1.097, 1.193, 1.373);\cr
+      y=(1.369, 1.766, 2.568, 3.141, 3.602, 4.299, 4.714, 5.487).\cr
+    }
+  }
+$$
+Agora, relembremos que
+$$
+  A={S_yQ_x-PS_x\over nQ_x-S_x^2}\quad\hbox{e}\quad B={nP-S_xS_y\over nQ_x-S_x^2}.
+$$
+Pondo estes dados num pequeno script em python, obtemos:
+$$
+  A=-0.10431716936864718\quad\hbox{e}\quad B=4.062227324893873
+$$
+Segundo J. R. Taylor, uma boa estimativa para $\sigma_y$ \'e dada de
+$$
+  (\Pi)\qquad P_{AB}(y_1,\ldots,y_n)\;\propto\;{1\over\sigma_y^n}\exp\Bigl(-{\chi^2\over2}\Bigr)
+$$
+pelo princ\'\i pio de probabilidade m\'axima. Fazendo
+$$
+  S=\sum_{i=1}^n(A+Bx_i-y_i)^2
+$$
+e derivando $(\Pi)$ com respeito a $\sigma_y$, e solucionando para zero, i.e.,
+$$
+  -{n\over\sigma_y^{n+1}}\exp\Bigl(-{\chi^2\over2}\Bigr)+{1\over\sigma_y^n}\exp\Bigl(-{\chi^2\over2}\Bigr){S\over\sigma_y^3}=0
+$$
+temos
+$$
+  \sigma_y=\sqrt{S\over n}=\sqrt{{1\over n}\sum_{i=1}^n(A+Bx_i-y_i)^2}.
+$$
+Por quest\~oes de compensa\c c\~ao no c\'alculo de $A$ e $B$ aumenta-se $\sigma_y$ ({\it vide} {\bsl An introduction to Error Analysis}\/), fazendo-se a seguinte adapta\c c\~ao em $\sigma_y$:
+$$
+  \sigma_y=\sqrt{{1\over n-2}\sum_{i=1}^n(A+Bx_i-y_i)^2}.
+$$
+Por quest\~oes de escassez de tempo, referindo-se novamente J. R. Taylor tem-se que
+$$
+  \sigma_B=\sigma_y\sqrt{n\over nQ_x-S_x^2}.
+$$
+Novamente, usando um script python temos
+$$
+  \sigma_B=0.0829044567347054
+$$
+Finalmente, aproximando os resultados de $B$ e $\sigma_B$ para o primeiro d\'\i gito significativo, obtemos
+$$
+  B=4.06\pm0.08.
+$$
+
+\procl{Quest\~ao}{}{%
+  Determine o valor da acelera\c c\~ao da gravidade $g$ na superf\'{\i}cie da Terra a partir do coefiente do termo dependente encontrado no item anterior, e, sua incerteza usando a teoria de propaga\c c\~ao de erros. Forne\c ca o resultado na forma $g\pm\Delta g$. 
+}
+
+Primeiramente, temos da teoria que
+$$
+  T^2=\Bigl({4\pi^2\over g}\Bigr)L.
+$$
+Comparando-se com nossa determina\c c\~ao estat\'\i stica obtemos
+$$
+  B={4\pi^2\over g},
+$$
+i.e.,
+$$
+  g={4\pi^2\over B},
+$$
+sabendo que $B\approx4.06$, temos
+$$
+  g=9.723748178413162.
+$$
+Pela teoria de propraga\c c\~ao de erros tem-se
+$$
+  \delta_g=\sqrt{({\partial_Bg}\cdot\sigma_y)^2}=\sigma_B|\partial_Bg|=\sigma_B\Bigl({2\pi\over B}\Bigr)^2.
+$$
+Agora, substituindo as aproxima\c c\~oes de $\sigma_B$ e $B$ determinadas na quest\~ao anterior incorremos naturalmente
+$$
+  \delta_g=0.19160094932833815
+$$
+aproximando para o primeiro d\'\i gito siginificativo obtemos que $\delta_g=0.19$. Por fim,
+$$
+  g\pm\delta_g\approx9.72\pm0.19.
+$$
+
+\procl{Quest\~ao}{}{%
+  Compare a precis\~ao do seu resultado com o valor esperado $g=9.78\pm0.01\;{\rm m}/{\rm s}^2$. Os valores s\~ao compat\'\i veis entre si?
+}
+
+Note que nosso experimento deu um intervalo $[9.53,9.91]$ que intersecta o intervalo esperado $[9.77,9.79]$, na realidade o experimental inclui o estipulado.
+
+\fig{%
+  \tikzpicture[scale=2]
+    \def\err(#1,#2){
+      \def\errl{.05}
+      \def\errt{.01}
+      \def\mult{1}
+      \draw [Bracket-Bracket](#1-\mult*\errl,#2) -- (#1+\mult*\errl,#2);
+      \draw (#1,#2-\mult*\errt) -- (#1,#2+\mult*\errt);
+    }
+    \err(0.350,1.369)
+    \err(0.496,1.766)
+    \err(0.648,2.568)
+    \err(0.783,3.141)
+    \err(0.899,3.602)
+    \err(1.097,4.299)
+    \err(1.193,4.714)
+    \err(1.373,5.487)
+    \draw  (0.223,0.8015595240826864) -- (1.5,5.989023817972162);
+  \endtikzpicture
+}{%
+  Regress\~ao de $\bar T^2$ em $L$. 
+}
+
+\bye
+
